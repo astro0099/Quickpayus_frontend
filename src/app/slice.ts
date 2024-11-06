@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { getTransitionName } from "antd/es/_util/motion";
-import { updateKycField } from "./slices/KycVerificationSlice";
+// import { getTransitionName } from "antd/es/_util/motion";
+// import { updateKycField } from "./slices/KycVerificationSlice";
 
 // Function to get the token
 const getToken = () => {
@@ -19,27 +19,27 @@ const baseQueryWithToken = fetchBaseQuery({
   },
 });
 
-const createDynamicEndpoint = (method, route) => {
-  return {
-    query: ({ url, data, id }) => {
-      if (id) {
-        return {
-          url: `${url}/${route}/${id}`,
-          method,
-          body: data,
-        };
-      } else {
-        return {
-          url: `${url}/${route}`,
-          method,
-          body: data,
-        };
-      }
-    },
-  };
-};
+// const createDynamicEndpoint = ({method, route} : {method: any, route: any}) => {
+//   return {
+//     query: ({ url, data, id } : { url: any, data: any, id: any}) => {
+//       if (id) {
+//         return {
+//           url: `${url}/${route}/${id}`,
+//           method,
+//           body: data,
+//         };
+//       } else {
+//         return {
+//           url: `${url}/${route}`,
+//           method,
+//           body: data,
+//         };
+//       }
+//     },
+//   };
+// };
 
-console.log("createDynamicEndpoint", createDynamicEndpoint("GET", ""));
+// console.log("createDynamicEndpoint", createDynamicEndpoint("GET", ""));
 
 export const api = createApi({
   reducerPath: "api",
@@ -97,7 +97,7 @@ export const api = createApi({
       query: ({ uuid }) => `user/${uuid}`,
       // method: "GET",
     }),
-    getData: builder.query(createDynamicEndpoint("GET", "")),
+    // getData: builder.query(createDynamicEndpoint("GET", "")),
     getProgramsData: builder.query({
       query: () => "/programs",
       // method: "GET",
@@ -109,8 +109,8 @@ export const api = createApi({
 
     // POST request
 
-    postData: builder.mutation(createDynamicEndpoint("POST", "")),
-    sendData: builder.mutation(createDynamicEndpoint("POST", "")),
+    // postData: builder.mutation(createDynamicEndpoint("POST", "")),
+    // sendData: builder.mutation(createDynamicEndpoint("POST", "")),
     postDepositForm: builder.mutation({
       query: (data) => ({
         url: `/transactions/`,
@@ -183,10 +183,33 @@ export const api = createApi({
     // deleteData: builder.mutation(createDynamicEndpoint("DELETE", ""), {
     //   invalidatesTags: ["notifications"],
     // }),
-    putData: builder.mutation(createDynamicEndpoint("PUT", "")), //
-    deleteData: builder.mutation(createDynamicEndpoint("DELETE", "")),
+    // putData: builder.mutation(createDynamicEndpoint("PUT", "")), 
+    // deleteData: builder.mutation(createDynamicEndpoint("DELETE", "")),
   }),
 });
+
+export const apiSlice = createApi({
+  reducerPath: 'api',
+  baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
+  endpoints: (builder) => ({
+    postData: builder.mutation({
+      query: ({ url, data, id }) => ({
+        url: `${url}`,
+        method: 'POST',
+        body: { data, id },
+      }),
+    }),
+    sendData: builder.mutation({
+      query: ({ url, data, id }) => ({
+        url: `${url}`,
+        method: 'POST',
+        body: { data, id },
+      }),
+    }),
+  }),
+});
+
+export const { usePostDataMutation, useSendDataMutation } = apiSlice;
 
 export const {
   useCheckUserQuery,
@@ -197,14 +220,14 @@ export const {
   useGetReferralsListQuery,
   useGetTransactionsListQuery,
   useGetUnreadNotificationsCountQuery,
-  useGetDataQuery,
+  // useGetDataQuery,
   useUpdateProfileDataMutation,
   usePostDepositFormMutation,
-  usePostDataMutation,
-  useSendDataMutation,
-  usePutDataMutation,
+  // usePostDataMutation,
+  // useSendDataMutation,
+  // usePutDataMutation,
   useUpdateNotificationMutation,
-  useDeleteDataMutation,
+  // useDeleteDataMutation,
   useUpdateKycVerificationDataMutation,
   useGetFAQQuery,
   useCreateOPTMutation,

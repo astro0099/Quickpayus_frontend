@@ -1,7 +1,7 @@
 import { API } from "@/utils/api";
 
 //send otp req
-export const requireOTP = async ({ request_type }) => {
+export const requireOTP = async ({ request_type }: { request_type: any }) => {
   try {
     const response = await API.post("/otp/create", { request_type });
     if (response.data.success) {

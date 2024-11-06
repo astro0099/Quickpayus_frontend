@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import {
   List,
   Typography,
-  Tag,
+  // Tag,
   Card,
   Space,
   Avatar,
-  Layout,
+  // Layout,
   Modal,
   Pagination,
   Divider,
@@ -129,7 +129,7 @@ const FeedbackMechanism: React.FC = () => {
                         </Typography.Text>
                       </Flex>
                     </Space>
-                    <Tag color={feedback.priority === "HIGH" ? "red" : (feedback.priority === "MEDIUM" ? "gold" : "lime")}>{feedback.priority || "MEDIUM"}</Tag>
+                    {/* <Tag color={feedback.priority === "HIGH" ? "red" : (feedback.priority === "MEDIUM" ? "gold" : "lime")}>{feedback.priority || "MEDIUM"}</Tag> */}
                     {/* <Rate allowHalf disabled defaultValue={feedback.rating} /> */}
                   </Space>
                   <Typography.Paragraph>

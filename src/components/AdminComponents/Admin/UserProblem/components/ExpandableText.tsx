@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Collapse, Button } from "antd";
+import { Button } from "antd";
 
-const { Panel } = Collapse;
+// const { Panel } = Collapse;
 
 interface ExpandableTextProps {
   text: string;

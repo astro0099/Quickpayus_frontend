@@ -1,6 +1,6 @@
 import { API } from "@/utils/api";
 
-export const getAllKycs = async (query) => {
+export const getAllKycs = async (query: any) => {
   try {
     const response = await API.get(`/admin/users/`, { params: query });
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Modal, Button, Typography } from "antd";
+import { Modal, Typography } from "antd";
 import { FileImageOutlined } from "@ant-design/icons";
 import Title from "antd/es/typography/Title";
 
@@ -32,7 +32,7 @@ const SystemNotifications: React.FC = () => {
       const res = await getSystemNotification();
       if (res.data)
         setNotifications(
-          res.data.map((item) => {
+          res.data.map((item: any) => {
             return {
               ...item,
               during: moment(new Date()).diff(

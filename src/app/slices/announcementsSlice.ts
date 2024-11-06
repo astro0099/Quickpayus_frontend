@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Announcement {
+  isDelete: any;
   _id: string; // Assuming each announcement has a unique ID
   isRead: boolean;
   title: string;

@@ -86,7 +86,7 @@ const ForgotPassword: React.FC = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
 
-  const handleSubmit = async (values, { setSubmitting }) => {
+  const handleSubmit = async (values: any) => {
     if (steps[currentStep] === "Email") {
       try {
         await axios.post("/api/v1/auth/password/forgot", {
@@ -99,9 +99,10 @@ const ForgotPassword: React.FC = () => {
         } else {
           console.error(error);
         }
-      } finally {
-        setSubmitting(false);
-      }
+      } 
+      // finally {
+      //   setSubmitting(false);
+      // }
     }
 
     if (steps[currentStep] === "Confirm Password") {
@@ -124,7 +125,7 @@ const ForgotPassword: React.FC = () => {
     }
   };
 
-  const validate = (values): FormErrors => {
+  const validate = (values: any): FormErrors => {
     const errors: FormErrors = {};
 
     if (steps[currentStep] === "Email") {
@@ -154,7 +155,7 @@ const ForgotPassword: React.FC = () => {
     return errors;
   };
 
-  const handleOtpInput = (value) => {
+  const handleOtpInput = (value: any) => {
     setOtp(value);
     if (value.length === 6) {
       nextStep();
@@ -189,7 +190,7 @@ const ForgotPassword: React.FC = () => {
                     }
                   >
                     <Field name="email">
-                      {({ field }) => (
+                      {({ field }: { field: any}) => (
                         <FloatingInput
                           label="Email"
                           name="email"
@@ -236,7 +237,7 @@ const ForgotPassword: React.FC = () => {
                     }
                   >
                     <Field name="password">
-                      {({ field }) => (
+                      {({ field }: { field: any}) => (
                         <FloatingLabelInputPassword
                           label="Password"
                           field={field}
@@ -266,7 +267,7 @@ const ForgotPassword: React.FC = () => {
                     }
                   >
                     <Field name="confirmPassword">
-                      {({ field }) => (
+                      {({ field }: {field: any}) => (
                         <FloatingLabelInputPassword
                           label="Confirm Password"
                           field={field}

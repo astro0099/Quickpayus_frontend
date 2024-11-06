@@ -125,7 +125,7 @@ const ChangePassword: React.FC = () => {
                 }
               >
                 <Field name="currentPassword">
-                  {({ field }) => (
+                  {({ field }: {field: any}) => (
                     <Input
                       type="password"
                       name="currentPassword"
@@ -149,7 +149,7 @@ const ChangePassword: React.FC = () => {
                 style={{ marginTop: "24px" }}
               >
                 <Field name="password">
-                  {({ field }) => (
+                  {({ field }: {field: any}) => (
                     <Input
                       type="password"
                       name="password"
@@ -175,7 +175,7 @@ const ChangePassword: React.FC = () => {
                 style={{ marginTop: "24px" }}
               >
                 <Field name="confirmPassword">
-                  {({ field }) => (
+                  {({ field }: { field: any}) => (
                     <Input
                       type="password"
                       name="confirmPassword"

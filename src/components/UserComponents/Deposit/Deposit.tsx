@@ -22,6 +22,10 @@ interface FormProps {
   investmentAmount: number;
 }
 
+interface ErrorResponseData {
+  message: string;
+}
+
 const Deposit: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -37,7 +41,7 @@ const Deposit: React.FC = () => {
     isLoading: programsLoading,
     refetch,
   } = useGetProgramsDataQuery(null);
-  const [postData, { isLoading: submitLoading }] = usePostDepositFormMutation();
+  const [postData] = usePostDepositFormMutation();
   const [messageApi, contextHolder] = message.useMessage();
 
   useEffect(() => {
@@ -64,33 +68,41 @@ const Deposit: React.FC = () => {
 
   const handleModalSubmit = async () => {
     try {
-      const {error} = await postData({
+      const response = await postData({
         receiverAddress: address,
         senderAddress: formValues.senderAddress,
         transactionType: "DEPOSIT",
         amount: formValues.investmentAmount,
       });
-
-      setIsModalVisible(false);
-
-      // const e
-
-      if (error) {
-        messageApi.open({
-          type: "error",
-          content: error.data.message
-        })
+  
+      if (response.error) {
+        if ('data' in response.error) {
+          const errorData = response.error.data as ErrorResponseData;
+          messageApi.open({
+            type: "error",
+            content: errorData.message,
+          });
+        } else {
+          messageApi.open({
+            type: "error",
+            content: "An unexpected error occurred.",
+          });
+        }
       } else {
         messageApi.open({
           type: "success",
-          content: 'Deposit succeed!',
+          content: "Deposit succeed!",
         });
       }
-      
     } catch (error) {
       console.error("Error:", error);
+      messageApi.open({
+        type: "error",
+        content: "An unexpected error occurred.",
+      });
     }
   };
+  
 
   const handleModalCancel = () => {
     setIsModalVisible(false);
@@ -110,7 +122,7 @@ const Deposit: React.FC = () => {
         })}
         onSubmit={(values) => handleConfirm(values)}
       >
-        {({ errors, touched, setFieldValue, handleSubmit }) => {
+        {({ setFieldValue, handleSubmit }) => {
           return (
             <Form
               onSubmit={(e) => {

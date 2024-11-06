@@ -1,6 +1,6 @@
 import { ApexOptions } from "apexcharts";
-import { useSelector } from "react-redux";
-import { selectSetting } from "@/app/selectors";
+// import { useSelector } from "react-redux";
+// import { selectSetting } from "@/app/selectors";
 
 interface ChartSeries {
   name: string;
@@ -84,7 +84,7 @@ export const eChartMonthly: ChartConfig = {
     },
 
     tooltip: {
-      custom: function({ series, seriesIndex, dataPointIndex, w }) {
+      custom: function({ series, seriesIndex, dataPointIndex}) {
         // Custom HTML for the tooltip
         return `<div style="background: #007AFF; padding: 2px 10px; border-radius: 50px; width: 100px; text-align: center;">
           <p style="color: white">$${series[seriesIndex][dataPointIndex].toLocaleString()}</p>
@@ -133,7 +133,7 @@ export const eChartDaily: ChartConfig = {
       show: false,
     },
     xaxis: {
-      categories: Array.from({ length: months[monthNumber] }, (item : unknown, index : number) => index + 1),
+      categories: Array.from({ length: months[monthNumber] }, (index : number) => index + 1),
       labels: {
         show: true,
         style: {
@@ -161,7 +161,7 @@ export const eChartDaily: ChartConfig = {
     },
     
     tooltip: {
-      custom: function({ series, seriesIndex, dataPointIndex, w }) {
+      custom: function({ series, seriesIndex, dataPointIndex}) {
         // Custom HTML for the tooltip
         return `<div style="background: #007AFF; padding: 2px 10px; border-radius: 50px; width: 100px; text-align: center;">
           <p style="color: white">$${series[seriesIndex][dataPointIndex].toLocaleString()}</p>
@@ -207,7 +207,7 @@ export const eChartWeekly: ChartConfig = {
     },
     xaxis: {
       
-      categories: Array.from({ length: 4 }, (item : unknown, index : number) => index + 1),
+      categories: Array.from({ length: 4 }, (index : number) => index + 1),
       labels: {
         show: true,
         style: {
@@ -235,7 +235,7 @@ export const eChartWeekly: ChartConfig = {
     },
 
     tooltip: {
-      custom: function({ series, seriesIndex, dataPointIndex, w }) {
+      custom: function({ series, seriesIndex, dataPointIndex }) {
         // Custom HTML for the tooltip
         return `<div style="background: #007AFF; padding: 2px 10px; border-radius: 50px; width: 100px; text-align: center;">
           <p style="color: white">$${series[seriesIndex][dataPointIndex].toLocaleString()}</p>

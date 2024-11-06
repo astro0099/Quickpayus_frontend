@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Flex, Row, Typography } from "antd";
+import { Flex, Typography } from "antd";
 const {Title} = Typography;
 
 export const Layout = styled.div`

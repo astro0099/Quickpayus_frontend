@@ -1,8 +1,8 @@
 import { ApexOptions } from "apexcharts";
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 
 import { useFetchBalanceAnalticsForChartQuery } from "@/app/slice";
-import { produce } from "immer";
+// import { produce } from "immer";
 interface ChartSeries {
   name: string;
   data: number[];
@@ -80,7 +80,7 @@ const initialChartConfig: ChartConfig = {
         style: {
           colors: "var(--color-text)",
         },
-        formatter: function (val, index) {
+        formatter: function (val) {
           return val.toFixed(0);
         },
       },
@@ -118,7 +118,7 @@ export const defaultXValue = {
   day: Array.from({ length: 31 }, (_, i) => i + 1),
 };
 
-export function largestPowerOfTen(s) {
+export function largestPowerOfTen(s: any) {
   return Math.pow(10, 1 + Math.floor(Math.log10(s)));
 }
 /*
@@ -136,12 +136,12 @@ export function useChartData() {
   const [loading, setLoading] = useState<boolean>(false);
   const [balanceFrame, setBalanceFrame] = useState<string>("profits");
   const [timeFrame, setTimeFrame] = useState<string>("day");
-  const [chart, setChart] = useState<ChartConfig>(initialChartConfig);
+  const [chart] = useState<ChartConfig>(initialChartConfig);
 
-  const fetchResult = useFetchBalanceAnalticsForChartQuery({
-    balanceFrame,
-    timeFrame,
-  });
+  // const fetchResult = useFetchBalanceAnalticsForChartQuery({
+  //   balanceFrame,
+  //   timeFrame,
+  // });
 
   const handleBalanceChange = useCallback((value: any): void => {
     setBalanceFrame(value);
@@ -254,7 +254,7 @@ export const daily = {
         style: {
           colors: "var(--color-text)",
         },
-        formatter: function (val, index) {
+        formatter: function (val: any) {
           return val.toFixed(0);
         },
       },
@@ -262,7 +262,7 @@ export const daily = {
 
     tooltip: {
       y: {
-        formatter: function (val) {
+        formatter: function (val: any) {
           return "$ " + val.toFixed(2) + " thousands";
         },
       },
@@ -342,7 +342,7 @@ export const monthly = {
        style: {
          colors: "var(--color-text)",
        },
-       formatter: function (val, index) {
+       formatter: function (val: any) {
          return val.toFixed(0);
        },
      },
@@ -350,7 +350,7 @@ export const monthly = {
 
    tooltip: {
      y: {
-       formatter: function (val) {
+       formatter: function (val: any) {
          return "$ " + val.toFixed(2) + " thousands";
        },
      },
@@ -417,7 +417,7 @@ export const weekly = {
        style: {
          colors: "var(--color-text)",
        },
-       formatter: function (val, index) {
+       formatter: function (val: any) {
          return val.toFixed(0);
        },
      },
@@ -425,7 +425,7 @@ export const weekly = {
 
    tooltip: {
      y: {
-       formatter: function (val) {
+       formatter: function (val: any) {
          return "$ " + val.toFixed(2) + " thousands";
        },
      },

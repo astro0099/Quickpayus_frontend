@@ -65,7 +65,7 @@ const SignupForm = () => {
   const [showMoreInfo, setShowMoreInfo] = useState<boolean>(false);
   // const [phone, setPhone] = useState<string>("");
   // const [dial, setDial] = useState<string>("");
-  const [countryCode, setCountryCode] = useState("");
+  // const [countryCode, setCountryCode] = useState("");
 
   const [countDownValue, setCountDownValue] = useState<number>(0);
   const navigate = useNavigate();

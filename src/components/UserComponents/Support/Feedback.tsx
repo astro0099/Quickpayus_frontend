@@ -6,19 +6,19 @@ import {
   Input,
   Button,
   Select,
-  Upload,
+  // Upload,
   Modal,
   Card,
-  Rate,
-  Space,
+  // Rate,
+  // Space,
 } from "antd";
-import { InboxOutlined, LeftOutlined } from "@ant-design/icons";
+import { LeftOutlined } from "@ant-design/icons";
 
 import { breakpoint } from "@/breakpoints";
 import useContainer from "@/utils/Hooks/useContainer";
 import { Link, useNavigate } from "react-router-dom";
 import { UploadButton } from "../UploadButton/UploadButton";
-import { PRIORITY } from "@/constants";
+// import { PRIORITY } from "@/constants";
 
 import { API } from "@/utils/api";
 
@@ -68,17 +68,23 @@ const CustomLink = styled(Link)`
   border-radius: 5px;
 `;
 
+enum PRIORITY {
+  LOW = 'LOW',
+  MEDIUM = 'MEDIUM',
+  HIGH = 'HIGH',
+}
+
 const FeedbackForm: React.FC = () => {
   const [form] = Form.useForm();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [fileList, setFileList] = useState<any[]>([]);
   const [feedback, setFeedback] = useState<string>("");
-  const [rate, setRate] = useState<number>(5);
+  // const [rate, setRate] = useState<number>(5);
   const [priority, setPriority] = useState<PRIORITY>(PRIORITY.LOW);
 
   const navigate = useNavigate();
 
-  Object.entries(PRIORITY).map(([key, value]) => {
+  Object.entries(PRIORITY).map(([key]) => {
     console.log(key);
   });
 
@@ -94,7 +100,7 @@ const FeedbackForm: React.FC = () => {
     setFileList([]);
   };
 
-  const handleGo = async (values: any) => {
+  const handleGo = async () => {
     const formData = new FormData();
     formData.append("feedback", feedback);
     formData.append("priority", priority);
@@ -117,17 +123,17 @@ const FeedbackForm: React.FC = () => {
     }
   };
 
-  const handleUploadChange = ({ fileList }: any) => {
-    setFileList(fileList);
-  };
+  // const handleUploadChange = ({ fileList }: any) => {
+  //   setFileList(fileList);
+  // };
 
-  const handleRateChange = (value: number) => {
-    console.log(value);
-    setRate(value);
-  };
+  // const handleRateChange = (value: number) => {
+  //   console.log(value);
+  //   setRate(value);
+  // };
 
-  const getFileList = (images) => {
-    const filesWithSerializedDate = images.fileList.map((file) => ({
+  const getFileList = (images: any) => {
+    const filesWithSerializedDate = images.fileList.map((file: any) => ({
       // ...file,
       lastModified: file.lastModified,
       lastModifiedDate: file.lastModifiedDate.toISOString(), // Convert Date to string

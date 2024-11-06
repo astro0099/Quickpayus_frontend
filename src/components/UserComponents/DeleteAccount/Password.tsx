@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Col, Form, Modal, Input, Button } from "antd";
+// import { useNavigate } from "react-router-dom";
+import { Col, Form, Modal, Input } from "antd";
 import { Formik, Field } from "formik";
 import * as Styled from "./accountdelete.styled";
 import FloatingLabelInputPassword from "../Auth/FloatingInput/FloatingInputPassword";
 import useContainer from "@/utils/Hooks/useContainer";
-import { useDispatch, useSelector } from "react-redux";
-import { API } from "@/utils/api";
-import { selectProfile } from "@/app/selectors";
+import { useDispatch } from "react-redux";
+// import { API } from "@/utils/api";
+// import { selectProfile } from "@/app/selectors";
 import { updateProfileField } from "@/app/profileSlice";
 import { usePostDataMutation, useSendDataMutation } from "@/app/slice"; // Update the path accordingly
 import axios from "axios";
@@ -22,15 +22,14 @@ interface DeleteAccountValues {
 
 const AccountDelete: React.FC = () => {
   const [otpModalVisible, setOtpModalVisible] = useState(false);
-  const [confirmationModalVisible, setConfirmationModalVisible] =
-    useState(false);
+  const [confirmationModalVisible, setConfirmationModalVisible] = useState(false);
   const [otp, setOtp] = useState("");
   const [getOtp, setGetOtp] = useState(""); // will get from backend
-  const [deletePassword, setDeletePassword] = useState("");
+  const [, setDeletePassword] = useState("");
   const [wrongPwd, setWrongPwd] = useState("");
 
-  const { id: userId } = useSelector(selectProfile);
-  const navigate = useNavigate();
+  // const { id: userId } = useSelector(selectProfile);
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
   const [postData] = usePostDataMutation();
   const [sendData] = useSendDataMutation();
@@ -41,11 +40,11 @@ const AccountDelete: React.FC = () => {
     setDeletePassword(values.password);
 
     try {
-      const result = await API.post("/auth/delete", {
-        pwd: values.password,
-        userId,
-        check: "check",
-      });
+      // const result = await API.post("/auth/delete", {
+      //   pwd: values.password,
+      //   userId,
+      //   check: "check",
+      // });
       setWrongPwd("");
       try {
         // Call API to send OTP
@@ -93,10 +92,10 @@ const AccountDelete: React.FC = () => {
       console.log(error);
     }
 
-    const result = await API.post("/auth/delete", {
-      pwd: deletePassword,
-      userId,
-    });
+    // const result = await API.post("/auth/delete", {
+    //   pwd: deletePassword,
+    //   userId,
+    // });
     signOut();
     setConfirmationModalVisible(false);
   };
@@ -126,7 +125,7 @@ const AccountDelete: React.FC = () => {
                   help={errors.password}
                 >
                   <Field name="password">
-                    {({ field }) => (
+                    {({ field }: {field: any}) => (
                       <FloatingLabelInputPassword
                         label="Password"
                         field={field}
@@ -190,3 +189,4 @@ const AccountDelete: React.FC = () => {
 };
 
 export default AccountDelete;
+

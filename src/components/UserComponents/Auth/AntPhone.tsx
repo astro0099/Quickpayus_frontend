@@ -29,8 +29,8 @@ const StyledButton = styled(Button)`
 `;
 
 export const AntPhone: React.FC<AntPhoneProps> = ({
-  value,
-  onChange,
+  // value,
+  // onChange,
   handleChange,
 }) => {
   const phoneInput = usePhoneInput({

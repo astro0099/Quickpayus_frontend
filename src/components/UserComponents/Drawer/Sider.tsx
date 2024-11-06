@@ -81,7 +81,7 @@ export const Sider: React.FC = () => {
   const device = useDevice();
 
   const [selectedOption, setSelectedOption] = useState<string>("");
-  const [collapsed, setCollapsed] = useState<boolean>(false);
+  // const [collapsed, setCollapsed] = useState<boolean>(false);
 
   const { themeMode } = useThemeMode();
 

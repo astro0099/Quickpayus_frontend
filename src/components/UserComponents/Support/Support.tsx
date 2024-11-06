@@ -4,7 +4,7 @@ import DarkBg from "@/assets/support/bg-3.svg";
 // antd
 import type { SearchProps } from "antd/es/input/Search";
 import { FileProtectOutlined, QuestionCircleOutlined } from "@ant-design/icons";
-import { List, Button, Tag, Typography, Collapse, Modal } from "antd";
+import { List, Tag, Typography, Collapse } from "antd";
 const { Text, Title } = Typography;
 const { Panel } = Collapse;
 
@@ -15,12 +15,29 @@ import { selectSetting } from "@/app/selectors";
 import { API } from "@/utils/api";
 import { useState } from "react";
 
+interface Ticket {
+  id: number;
+  subject: string;
+  status: string;
+  priority: string;
+  description: string;
+  image?: string;
+}
+
+interface Feedback {
+  id: number;
+  fbCnt: string;
+  priority: string;
+}
+
 const Support = () => {
-  const [filteredTickets, setFilteredTickets] = useState([]);
-  const [filteredFeedbacks, setFilteredFeedbacks] = useState([]);
+  const [filteredTickets, setFilteredTickets] = useState<Ticket[]>([]);
+  const [filteredFeedbacks, setFilteredFeedbacks] = useState<Feedback[]>([]);
+  // const [filteredTickets, setFilteredTickets] = useState([]);
+  // const [filteredFeedbacks, setFilteredFeedbacks] = useState([]);
   const [showFilteredFeedback, setShowFilteredFeedback] = useState(false);
 
-  const onSearch: SearchProps["onSearch"] = async (value, _e, info) => {
+  const onSearch: SearchProps["onSearch"] = async (value, _e) => {
     try {
       if (value) {
         const result = await API.post("/support/search", { searchText: value });
@@ -41,6 +58,11 @@ const Support = () => {
     }
   }
 
+  const handleImageClick = (image: string) => {
+    // Implement image click handling logic here, e.g., open image in a modal
+    console.log("Image clicked:", image);
+  };
+  
   const settings = useSelector(selectSetting);
 
   return (

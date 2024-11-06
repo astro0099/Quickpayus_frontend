@@ -79,22 +79,22 @@ const AdminDashboard: React.FC = () => {
     useState<UserDemographics | null>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
-  const config = {
-    innerRadius: 0.6,
-    label: {
-      text: "value",
-      style: {
-        fontWeight: "bold",
-      },
-    },
-    legend: {
-      color: {
-        title: false,
-        position: "right",
-        rowPadding: 5,
-      },
-    },
-  };
+  // const config = {
+  //   innerRadius: 0.6,
+  //   label: {
+  //     text: "value",
+  //     style: {
+  //       fontWeight: "bold",
+  //     },
+  //   },
+  //   legend: {
+  //     color: {
+  //       title: false,
+  //       position: "right",
+  //       rowPadding: 5,
+  //     },
+  //   },
+  // };
   useEffect(() => {
     const fetchData = async () => {
       const result = await analytics();

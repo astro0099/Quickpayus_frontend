@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 import { Layout } from "antd";
 import AdminBanner from "./components/AdminComponents/Banner/Banner";
@@ -10,7 +10,7 @@ import UserBanner from "./components/UserComponents/Banner/Banner";
 import {
   GetPermissionAsync,
   checkAuthAsync,
-  selectPermission,
+  // selectPermission,
 } from "./components/AdminComponents/Auth/authSlice";
 import { selectProfile } from "@/app/selectors";
 
@@ -24,7 +24,7 @@ import AutoSignOut from "./components/AdminComponents/Auth/AutoSignOut";
 import { ToastContainer } from "react-toastify";
 import { Sider } from "./components/UserComponents/Drawer/Sider";
 import { useDevice } from "./utils/Hooks/useDevice";
-import { getRequirementForPath, isAccessible } from "./utils/utils";
+// import { getRequirementForPath, isAccessible } from "./utils/utils";
 import { PrivateRouter } from "./Routes/PrivateRouter";
 
 
@@ -34,8 +34,8 @@ const App: React.FC = () => {
   const isAuthPath = authPaths.indexOf(location.pathname) > -1;
   const profile = useSelector(selectProfile);
   const device = useDevice();
-  const navigate = useNavigate();
-  const permissions = useSelector(selectPermission);
+  // const navigate = useNavigate();
+  // const permissions = useSelector(selectPermission);
 
   useEffect(() => {
     dispatch(GetPermissionAsync());

@@ -9,7 +9,7 @@ import { selectProfile } from "@/app/selectors";
 import { updateProfileField } from "@/app/profileSlice";
 
 const GeneralSettings = () => {
-  const [iskycDone, setiskycDone] = useState(false);
+  const [iskycDone] = useState(false);
   const [enableMFA, setEnableMFA] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
 
@@ -20,7 +20,7 @@ const GeneralSettings = () => {
     setEnableMFA(isEnableMFA || false);
   }, [isEnableMFA]);
 
-  const onChange = (checked: boolean) => {
+  const onChange = () => {
     setEnableMFA(!enableMFA);
     handleChangeEmail(!enableMFA);
   };

@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // antd
-import { Row, Col, Skeleton, Tooltip, theme } from "antd";
+import { Row, Col, Skeleton, Tooltip } from "antd";
 
 // components
 import EChart from "./Charts";
@@ -17,7 +17,7 @@ const UserDashboard = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState<boolean>(true);
   const analytics = useSelector(selectAnalytics);
-  const profile = useSelector(selectProfile);
+  // const profile = useSelector(selectProfile);
 
   useEffect(() => {
     const getAnalyticsData = async () => {

@@ -62,11 +62,11 @@ export const selectUnreadNotificationCount = (state: RootState) => {
   return count;
 };
 
-export const selectUnDeletedNotificationsCount = (state: RootState) => {
-  let count = 0;
+// export const selectUnDeletedNotificationsCount = (state: RootState) => {
+//   let count = 0;
 
-  state.notifications.data.forEach((notification) => {
-    if (!notification.isDelete) count++;
-  });
-  return count;
-};
+//   state.notifications.data.forEach((notification) => {
+//     if (!notification.isDelete) count++;
+//   });
+//   return count;
+// };

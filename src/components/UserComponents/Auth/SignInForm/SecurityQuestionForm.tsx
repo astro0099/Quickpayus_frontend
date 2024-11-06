@@ -55,7 +55,7 @@ export const SecurityQuestionForm: React.FC<Props> = ({
             className={`${errors.question ? "shake" : ""}`}
           >
             <Field name="question">
-              {({ field }) => (
+              {({ field } : {field : any}) => (
                 <>
                   <Select
                     size="large"
@@ -84,7 +84,7 @@ export const SecurityQuestionForm: React.FC<Props> = ({
             className={`${errors.answer ? "shake" : ""}`}
           >
             <Field name="answer">
-              {({ field }) => (
+              {({ field }: {field: any}) => (
                 <>
                   <FloatingInput label="Answer" name="answer" field={field} />
                   <ErrorMessage

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Table, Typography } from "antd";
+import { Typography } from "antd";
 
 const {Title} = Typography;
 

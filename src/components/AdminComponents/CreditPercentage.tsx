@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Card, Typography, InputNumber, Space, Row } from "antd";
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import { Typography, InputNumber, Space, Row } from "antd";
+// import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 import * as Styled from "./Style/CreditPercentage.styled";
 
@@ -62,7 +62,7 @@ const Data = [
 const CreditPercentage = () => {
   const [percentages, setPercentages] = useState(Data);
 
-  const handlePercentageChange = (levelIndex, newPercentage) => {
+  const handlePercentageChange = ({ levelIndex, newPercentage }: { levelIndex: any; newPercentage: any; }) => {
     const updatedPercentages = [...percentages];
     updatedPercentages[levelIndex].LevelsByNumber[
       newPercentage.index
@@ -109,9 +109,9 @@ const CreditPercentage = () => {
                     value={level.Percentage}
                     min={0}
                     max={100}
-                    onChange={(value) =>
-                      handlePercentageChange(index, { index: idx, value })
-                    }
+                    onChange={(value) => {
+                      handlePercentageChange({ levelIndex: index, newPercentage: value });
+                    }}
                     className="w-20"
                   />
                 </Row>

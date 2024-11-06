@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 // antd
-import { AutoComplete, Avatar } from "antd";
+import { AutoComplete } from "antd";
 //styles
 import * as Styled from './ReferralInput.style';
 

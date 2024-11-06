@@ -24,5 +24,5 @@ export const breakpoint = {
   lg: `@media screen and (min-width: ${BREAKPOINTS.LG}px)`,
   xl: `@media screen and (min-width: ${BREAKPOINTS.XL}px)`,
   xxl: `@media screen and (min-width: ${BREAKPOINTS.XXL}px)`,
-  custom: (minWidth) => `@media screen and (min-width: ${minWidth}px)`,
+  custom: ({minWidth}: {minWidth: any}) => `@media screen and (min-width: ${minWidth}px)`,
 };

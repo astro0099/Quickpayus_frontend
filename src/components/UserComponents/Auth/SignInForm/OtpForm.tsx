@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Formik, Field, ErrorMessage } from "formik";
-import { defaultSecurityQuestions } from "../Signup";
+// import { Formik, Field, ErrorMessage } from "formik";
+// import { defaultSecurityQuestions } from "../Signup";
 // antd
 import { Form } from "antd";
 
@@ -8,7 +8,7 @@ import { InputOTP } from "antd-input-otp";
 
 import * as Styled from "../SignIn.styled";
 
-import { requireOTP, verifyOTP } from "../OTPApi";
+import { verifyOTP } from "../OTPApi";
 
 interface Props {
   onFinish: (result: boolean) => void;
@@ -22,13 +22,13 @@ export const OtpForm: React.FC<Props> = ({ onFinish }) => {
   }, []);
 
   const handleRequireOTP = async () => {
-    const res = await requireOTP({
-      request_type: "login",
-    });
+    // const res = await requireOTP({
+    //   request_type: "login",
+    // });
     setCountDownValue(5);
   };
 
-  const handleOtpInput = async (value) => {
+  const handleOtpInput = async (value: any) => {
     setOtp(value);
     if (value.length === 6) {
       await handleOtpVerification(value.join(""));
@@ -47,7 +47,7 @@ export const OtpForm: React.FC<Props> = ({ onFinish }) => {
   };
 
   useEffect(() => {
-    let interval;
+    let interval: any;
     if (countDownValue > 0) {
       interval = setInterval(() => {
         setCountDownValue((prevTimer): number => {

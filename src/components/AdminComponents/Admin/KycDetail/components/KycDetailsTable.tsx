@@ -112,7 +112,7 @@ const UsersTable: React.FC<Props> = ({
     {
       title: "Documentation Provided",
       key: "documentation",
-      render: (text: string, record: User) => (
+      render: ( record: User) => (
         <>
           <Button
             className="text-blue-500 hover:text-blue-700 underline"
@@ -126,7 +126,7 @@ const UsersTable: React.FC<Props> = ({
     {
       title: "Action",
       key: "action",
-      render: (text: string, record: User) => {
+      render: (record: User) => {
         const items: MenuProps["items"] = [
           {
             key: "1",
@@ -225,7 +225,7 @@ const UsersTable: React.FC<Props> = ({
         columns={columns}
         dataSource={sortedUsers}
         rowKey="id"
-        onChange={(pagination, filters, sorter: any) => {
+        onChange={(sorter: any) => {
           if (sorter && sorter.columnKey && sorter.order) {
             handleSortBy(sorter.columnKey);
           }

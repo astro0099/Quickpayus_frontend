@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ReactFlagsSelect from "react-flags-select";
 
 // antd
-import { Card, Input, Button, Checkbox, Select, Steps as UiSteps } from "antd";
+import { Card, Input, Button, Checkbox, Steps as UiSteps } from "antd";
 
 // breakpoints
 import { breakpoint } from "@/breakpoints";

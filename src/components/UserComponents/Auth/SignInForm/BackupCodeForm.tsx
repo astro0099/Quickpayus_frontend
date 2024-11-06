@@ -33,7 +33,7 @@ export const BackupCodeForm: React.FC<Props> = ({ setMode, onSubmit }) => {
       }}
       onSubmit={onSubmit}
     >
-      {({ errors, touched, isSubmitting, handleSubmit, setFieldValue }) => (
+      {({ errors, touched, isSubmitting, handleSubmit }) => (
         <Form layout="vertical" onFinish={handleSubmit}>
           <Form.Item
             validateStatus={
@@ -46,7 +46,7 @@ export const BackupCodeForm: React.FC<Props> = ({ setMode, onSubmit }) => {
             className={`${errors.backupCode ? "shake" : ""}`}
           >
             <Field name="backupCode">
-              {({ field }) => (
+              {({ field }: {field : any}) => (
                 <>
                   <FloatingInput
                     label="Backup Code"

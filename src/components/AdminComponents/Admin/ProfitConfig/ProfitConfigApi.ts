@@ -17,7 +17,7 @@ export const upsertProfitConfig = async (data: number[]) => {
     if (response.statusText === "OK") {
       return response.data;
     } else return {};
-  } catch (erro: {
+  } catch ({erro}:  {
     response: { data: { message: string } };
   }) {
     return erro?.response?.data;

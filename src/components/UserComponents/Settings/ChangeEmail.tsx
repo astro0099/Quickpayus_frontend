@@ -2,13 +2,13 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { Button, Form, Input, Card, message, Modal } from "antd";
+import { Button, Form, Input, Card, message} from "antd";
 
 import { breakpoint } from "@/breakpoints";
 import { updateProfile } from "@/app/profileSlice";
 import { selectProfile } from "@/app/selectors";
 
-import useContainer from "@/utils/Hooks/useContainer";
+// import useContainer from "@/utils/Hooks/useContainer";
 import { API } from "@/utils/api";
 import { LeftOutlined } from "@ant-design/icons";
 
@@ -50,7 +50,7 @@ const ChangeEmail: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const profile = useSelector(selectProfile);
 
-  const handleChangeEmail = async ({ password, email }) => {
+  const handleChangeEmail = async ({ password, email }: {password: any, email: any}) => {
     if (email === profile.email) {
       messageApi.open({
         type: "warning",

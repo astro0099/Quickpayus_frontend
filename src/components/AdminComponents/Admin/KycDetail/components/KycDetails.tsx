@@ -1,4 +1,4 @@
-import { Typography } from "antd";
+// import { Typography } from "antd";
 import React, { useEffect, useState } from "react";
 import { Button, DatePicker, Select } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
@@ -9,7 +9,7 @@ import { updateKyc, getAllKycs } from "../KycDetailApi";
 import moment from "moment";
 
 const { Option } = Select;
-const { Title } = Typography;
+// const { Title } = Typography;
 
 export interface User {
   id: string;
@@ -39,10 +39,10 @@ const KYCStatusComponent: React.FC = () => {
   // const [sortBy, setSortBy] = useState<"id" | "status">("id");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [searchBy, setSearchBy] = useState<"name" | "dob" | "id">("name");
-  const [selectedDateRange, setSelectedDateRange] = useState<
+  const [selectedDateRange] = useState<
     [string, string] | null
   >(null);
-  console.log(selectedDateRange);
+  // console.log(selectedDateRange);
 
   useEffect(() => {
     (async () => {
@@ -83,9 +83,9 @@ const KYCStatusComponent: React.FC = () => {
   }, [searchTerm, selectedDateRange]);
 
   // Function to handle date range change
-  const handleDateRangeChange = (dates: any, dateStrings: [string, string]) => {
-    setSelectedDateRange(dateStrings);
-  };
+  // const handleDateRangeChange = (dateStrings: [string, string]) => {
+  //   setSelectedDateRange(dateStrings);
+  // };
 
   // Function to filter users based on selected date range
   const filterUsersByDateRange = () => {
@@ -220,7 +220,7 @@ const KYCStatusComponent: React.FC = () => {
           </Styled.SearchWrapper>
           <Styled.FilterWrapper>
             <DatePicker.RangePicker
-              onChange={handleDateRangeChange}
+              // onChange={handleDateRangeChange}
               placeholder={["from", "to"]}
             />
             <Button

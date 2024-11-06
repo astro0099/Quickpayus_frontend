@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Input, Upload, message, Modal, Typography } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import styled from "styled-components";

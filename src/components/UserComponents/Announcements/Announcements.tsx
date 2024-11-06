@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 import { Layout, Skeleton, Empty } from "antd";
 import { NotificationCard } from "../NotificationCard";
 

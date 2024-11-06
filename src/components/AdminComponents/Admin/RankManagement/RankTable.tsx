@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Button } from "antd";
+import { Table} from "antd";
 import type { ColumnsType } from "antd/lib/table";
 import { RankType } from "@/types/RankType";
 import { STATUS } from "@/constants";
@@ -16,8 +16,8 @@ interface Props {
 const RankTable: React.FC<Props> = ({
   ranks,
   paginationProps,
-  handleApprove,
-  handleReject,
+  // handleApprove,
+  // handleReject,
 }) => {
   // Define columns
   const columns: ColumnsType<RankType> = [

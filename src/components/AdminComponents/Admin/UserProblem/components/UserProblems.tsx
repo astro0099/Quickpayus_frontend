@@ -3,7 +3,7 @@ import {
   List,
   Tag,
   Typography,
-  Collapse,
+  // Collapse,
   Modal,
   Flex,
   Input,
@@ -16,7 +16,7 @@ import {
 } from "antd";
 
 const { Text, Title, Paragraph } = Typography;
-const { Panel } = Collapse;
+// const { Panel } = Collapse;
 const { RangePicker } = DatePicker;
 import { fetchTickets, sendTicketReply } from "../UserProblemsApi";
 import { TicketType } from "@/types/TicketsType";
