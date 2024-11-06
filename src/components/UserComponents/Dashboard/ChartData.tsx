@@ -1,7 +1,7 @@
 import { ApexOptions } from "apexcharts";
 import { useState, useCallback } from "react";
 
-import { useFetchBalanceAnalticsForChartQuery } from "@/app/slice";
+// import { useFetchBalanceAnalticsForChartQuery } from "@/app/slice";
 // import { produce } from "immer";
 interface ChartSeries {
   name: string;

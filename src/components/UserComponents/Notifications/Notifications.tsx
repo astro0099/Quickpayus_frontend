@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
@@ -12,11 +12,11 @@ import * as Styled from "./Notifications.styled";
 import { api } from "@/app/slice";
 import {
   selectNotifications,
-  selectUnreadNotificationCount,
   selectUnDeletedNotificationsCount,
+  selectUnreadNotificationCount,
 } from "@/app/selectors";
 import {
-  setNotifications,
+  // setNotifications,
   resetNotifications,
   readOne,
   deleteOne,

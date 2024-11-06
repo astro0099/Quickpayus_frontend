@@ -38,8 +38,8 @@ export const PersonalInformationForm: React.FC<
   PersonalInformationFormProps
 > = ({ errors }) => {
   const [form] = Form.useForm();
-  const [formValues, setFormValues] = useState({});
-  const [value, setValue] = useState();
+  const [, setFormValues] = useState({});
+  const [value] = useState();
   const [countryCode, setCountryCode] = useState("");
   const [phone, setPhone] = useState(0);
 

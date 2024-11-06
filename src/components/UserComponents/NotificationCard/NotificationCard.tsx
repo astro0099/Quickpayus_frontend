@@ -72,8 +72,8 @@ export const NotificationCard: React.FC<props> = ({ cardItem, variant, onRead, o
               <Styled.Message>{cardItem.message}</Styled.Message>
             )}
           </Link>
-          {cardItem.description && cardItem.description.length > 200 ? <Link className="text-display-btn" type="link" onClick={() => setFullText(!fullText)}>{fullText ? "Hide" : "Read more"}</Link> : null }
-          {cardItem.message && cardItem.message.length > 200 ? <Link className="text-display-btn" type="link" onClick={() => setFullText(!fullText)}>{fullText ? "Hide" : "Read more"}</Link> : null }
+          {cardItem.description && cardItem.description.length > 200 ? <Link className="text-display-btn" type="link" onClick={() => setFullText(!fullText)} to={""}>{fullText ? "Hide" : "Read more"}</Link> : null }
+          {cardItem.message && cardItem.message.length > 200 ? <Link className="text-display-btn" type="link" onClick={() => setFullText(!fullText)} to={""}>{fullText ? "Hide" : "Read more"}</Link> : null }
         </Styled.NotificationContent>
         <Styled.Action>
           <Styled.Time $variant={variant}>

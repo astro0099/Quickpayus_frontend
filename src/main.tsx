@@ -3,15 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import {
   RouterProvider,
-  createBrowserRouter,
-  Navigate,
+  // createBrowserRouter,
+  // Navigate,
 } from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+// import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
-import AppRoutes from "./Routes";
+// import AppRoutes from "./Routes";
 
-import { store, AppDispatch } from "./app/store";
+import { store } from "./app/store";
 
 import { router } from "./Routes/Routes";
 import { ToastContainer } from "react-toastify";

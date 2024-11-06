@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // antd
@@ -9,7 +9,7 @@ import EChart from "./Charts";
 
 // styles
 import * as Styled from "./Style/Dashboard.styled";
-import { selectAnalytics, selectProfile } from "@/app/selectors";
+import { selectAnalytics } from "@/app/selectors";
 import { updateAnalytics } from "@/app/analyticsSlice";
 import { API } from "@/utils/api";
 

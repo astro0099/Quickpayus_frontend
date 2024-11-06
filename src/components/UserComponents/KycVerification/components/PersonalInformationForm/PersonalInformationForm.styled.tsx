@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { DatePicker, Select, Form, Input } from "antd";
+import { DatePicker, Select, Input } from "antd";
 
 export const Heading = styled.div`
   font-size: 20px;

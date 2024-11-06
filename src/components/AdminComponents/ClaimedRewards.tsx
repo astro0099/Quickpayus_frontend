@@ -19,7 +19,7 @@ const ClaimedRewards: React.FC = () => {
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [searchCriteria, setSearchCriteria] = useState<string>("user");
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [, setCurrentPage] = useState<number>(1);
   const itemsPerPage: number = 15;
   const rewardsData: RewardData[] = []; // Dummy data for 200 people
 

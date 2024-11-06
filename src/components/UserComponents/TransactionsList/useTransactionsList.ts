@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useGetTransactionsListQuery } from "@/app/slice";
 import dayjs from "dayjs";
-import { DefaultOptionType } from 'antd/lib/select';
+// import { DefaultOptionType } from 'antd/lib/select';
 
 // Assuming the structure of your transaction list items and defining an interface for it
 interface Transaction {
@@ -77,7 +77,7 @@ export function useTransactionsList() {
 
   const handleTransactionTypeChange = useCallback(
     // Adjust the function signature to accept a second parameter and to handle `unknown` type for the value
-    (value: unknown, option: DefaultOptionType | DefaultOptionType[]) => {
+    (value: unknown) => {
       // Since you expect the value to be a string, you can assert the type to string.
       // However, be cautious with type assertions and ensure that the value can indeed be treated as a string.
       const transactionType = value as string;
@@ -89,7 +89,7 @@ export function useTransactionsList() {
 
   const handleStatusChange = useCallback(
     // Adjust the function signature to accept the expected parameters
-    (value: unknown, option: DefaultOptionType | DefaultOptionType[]) => {
+    (value: unknown) => {
       // Assuming the value will always be a string, assert the type to string
       const statusValue = value as string;
       setStatus(statusValue);

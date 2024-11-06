@@ -9,7 +9,7 @@ import { LoadingOutlined } from "@ant-design/icons";
 const KYCVerification = () => {
   const kyc = useSelector(selectKycVerification);
 
-  const [currentState, setCurrentState] = useState(0);
+  const [, setCurrentState] = useState(0);
 
   useEffect(() => {
     switch (kyc.status) {

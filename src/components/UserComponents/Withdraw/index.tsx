@@ -33,7 +33,7 @@ const Withdrawal = () => {
   const [timer, setTimer] = useState(0);
   const [otp, setOtp] = useState([]);
   const [verificationError, setVerificationError] = useState("");
-  const [verificationLoading, setVerificationLoading] = useState(false);
+  const [, setVerificationLoading] = useState(false);
   const [formValues, setFormValues] = useState<FormProps>({
     withdrawalAmount: "",
     withdrawalAddress: "",

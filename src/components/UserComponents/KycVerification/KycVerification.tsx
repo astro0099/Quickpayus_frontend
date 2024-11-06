@@ -15,7 +15,7 @@ import { AddYourPicturesForm } from "./components/AddYourPicturesForm/AddYourPic
 import PageTitle from "../PageTitle";
 
 // redux
-import { useUpdateKycVerificationDataMutation } from "@/app/slice";
+// import { useUpdateKycVerificationDataMutation } from "@/app/slice";
 import { selectKycVerification } from "@/app/selectors";
 import { selectProfile } from "@/app/selectors";
 
@@ -30,7 +30,7 @@ import { updateKyc, updateKycField } from "@/app/slices/KycVerificationSlice";
 export const KycVerification: React.FC = () => {
   const [current, setCurrent] = useState(0);
   const [confirmSubmitModal, setConfirmSubmitModal] = useState(false);
-  const [result, setResult] = useState(0);
+  // const [result, setResult] = useState(0);
 
   const [messageApi, contextHolder] = message.useMessage();
   const kycRedux = useSelector(selectKycVerification);
@@ -40,8 +40,8 @@ export const KycVerification: React.FC = () => {
   const navigate = useNavigate();
   const device = useDevice();
 
-  const [updateKycVerificationData, { isLoading }] =
-    useUpdateKycVerificationDataMutation();
+  // const [updateKycVerificationData, { isLoading }] =
+  //   useUpdateKycVerificationDataMutation();
 
   useEffect(() => {
     if (!kycRedux?.status) {
@@ -174,11 +174,11 @@ export const KycVerification: React.FC = () => {
         kycRedux[type as keyof typeof kycRedux].forEach((file: any) => formData.append(type, file.fileObj))
       );
 
-      const response = await API.post("/user/update/kyc", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      // const response = await API.post("/user/update/kyc", formData, {
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+      //   },
+      // });
       dispatch(
         updateKycField({
           field: "status",

@@ -16,11 +16,11 @@ export const AddYourPicturesForm: React.FC<AddYourPicturesFormProps> = ({
   errors,
 }) => {
   const [form] = Form.useForm();
-  const [formValues, setFormValues] = useState({});
+  const [, setFormValues] = useState({});
 
   const dispatch = useDispatch();
 
-  const handleValuesChange = (changedValues: any, allValues: any) => {
+  const handleValuesChange = (_changedValues: any, allValues: any) => {
     setFormValues(allValues);
   };
 

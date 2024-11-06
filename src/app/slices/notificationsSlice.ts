@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface Notification {
+  isDelete: any;
   _id: string; // Assuming each notification has an ID
   isRead: boolean;
   // Add other notification properties here

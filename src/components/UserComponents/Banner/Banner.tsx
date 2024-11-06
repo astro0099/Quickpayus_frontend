@@ -264,7 +264,7 @@ export const Banner = () => {
 
   let isNewAnnouncement = false;
   if (announcements)
-    isNewAnnouncement = announcements.data.some((announcement) => !announcement.isRead);
+    isNewAnnouncement = announcements.data.some((announcement: { isRead: any; }) => !announcement.isRead);
   
   useEffect(() => {
     if (!isAuthPath && location.pathname !== '/notifications') {

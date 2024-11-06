@@ -2,13 +2,15 @@ import { BREAKPOINTS } from "@/breakpoints";
 import { isNumber } from "lodash";
 import { useCallback, useEffect, useState } from "react";
 
+type BreakpointKey = keyof typeof BREAKPOINTS;
+
 export function useDevice() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const isTouchInput = "ontouchstart" in window;
 
   const isBreakpoint = useCallback(
-    (breakpoint: any) => {
+    (breakpoint: number | BreakpointKey) => {
       if (isNumber(breakpoint)) {
         return windowWidth >= breakpoint;
       }

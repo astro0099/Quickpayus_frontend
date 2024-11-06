@@ -30,8 +30,8 @@ export const IDVerificationForm: React.FC<IDVerificationFormProps> = ({
 }) => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
-  const [formValues, setFormValues] = useState({});
-  const [country, setCountry] = useState("");
+  const [, setFormValues] = useState({});
+  const [country] = useState("");
   const [maxCount, setMaxCount] = useState(2);
 
   const [images, setImages] = useState([]);
